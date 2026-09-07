@@ -4,7 +4,7 @@ This repository accompanies the CoRL 2026 submission, **M<sup>3</sup>P-R1: Reinf
 
 ## Project page
 
-The conference-style project page is available in [index.html](index.html). Enable GitHub Pages from the `main` branch to publish it.
+Visit the live conference-style [project page](https://xingpengsun0.github.io/CoRL-26-M3P-R1/).
 
 ## Video
 
