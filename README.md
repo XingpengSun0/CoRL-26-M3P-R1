@@ -2,9 +2,11 @@
 
 This repository accompanies the CoRL 2026 submission, **M<sup>3</sup>P-R1: Reinforcement Learning for Large Language Model Guided Multi-Modal Motion Planning via MIP Code Generation**.
 
-## Project page
+Multi-modal motion planning requires robots to coordinate continuous trajectories with discrete decisions such as contacts, grasping, and mode transitions. M<sup>3</sup>P-R1 fine-tunes large language models to translate natural-language motion-planning tasks into executable mixed-integer programming (MIP) code. The generated programs are solved and checked, providing solver-backed feedback for reliable, verifiable plans across locomotion, manipulation, and aerial-navigation tasks.
 
-Visit the live conference-style [project page](https://xingpengsun0.github.io/CoRL-26-M3P-R1/).
+<p align="center">
+  <img src="assets/figures/teaser.png" alt="M3P-R1 multi-modal planning examples" width="100%">
+</p>
 
 ## Video
 
