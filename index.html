@@ -13,6 +13,7 @@
         <a class="brand" href="#top">M<sup>3</sup>P-R1</a>
         <div class="nav-links">
           <a href="#abstract">Abstract</a>
+          <a href="#tasks">Tasks</a>
           <a href="#method">Method</a>
           <a href="#results">Results</a>
           <a href="#video">Video</a>
@@ -43,16 +44,30 @@
 
       <section class="section wrap" id="abstract">
         <p class="eyebrow">Overview</p>
-        <h2>Language to executable motion planning</h2>
+        <h2>From language to solver-grounded motion plans</h2>
         <div class="abstract-grid">
-          <p>Multi-modal motion planning requires joint reasoning over continuous trajectories and discrete mode transitions. M<sup>3</sup>P-R1 trains a large language model to translate natural-language robotic tasks into executable mixed-integer programming (MIP) formulations.</p>
-          <p>Instead of producing an unverified plan, the model writes solver-backed Python code. Solver feedback rewards valid formatting, API coverage, execution, and task correctness, making the generated planning program both inspectable and verifiable.</p>
+          <p>Multi-modal motion planning requires a robot to reason jointly about continuous motion and discrete mode transitions: a biped may walk to an object, an arm may reach through clutter, and a team of aerial robots may coordinate a rendezvous. These tightly coupled geometric and symbolic decisions are difficult to model with a single planning abstraction.</p>
+          <p>M<sup>3</sup>P-R1 turns natural-language task descriptions into executable mixed-integer programming (MIP) code. Rather than asking an LLM to output an unverified answer, our approach generates solver-backed Python programs whose variables, constraints, and objectives can be executed and checked.</p>
         </div>
-        <div class="highlights" aria-label="Key results">
-          <article><strong>1,316</strong><span>benchmark problems</span></article>
-          <article><strong>91.7%</strong><span>single-modal success</span></article>
-          <article><strong>80.9%</strong><span>multi-modal success</span></article>
-          <article><strong>87.5%</strong><span>real-world success</span></article>
+        <div class="overview-callout">
+          <span>LLM + MIP</span>
+          <p>During reinforcement fine-tuning, the solver provides verifiable feedback on format, API usage, program execution, and task correctness. The result is a planning policy that learns reusable discretization primitives and composes them into multi-modal programs.</p>
+        </div>
+      </section>
+
+      <section class="section tasks-section" id="tasks">
+        <div class="wrap">
+          <p class="eyebrow">Task coverage</p>
+          <h2>One pipeline, diverse robotic tasks</h2>
+          <p class="lead">The M<sup>3</sup>P-R1 pipeline is built around modality-level MIP primitives, then learns to combine them with cross-modal constraints such as shared meeting points, contact locations, reachability, and synchronized intermediate states.</p>
+          <div class="task-grid">
+            <article><span class="task-mark">01</span><h3>UAV navigation</h3><p>Collision-free trajectories through structured obstacle maps.</p></article>
+            <article><span class="task-mark">02</span><h3>Inverse kinematics</h3><p>Obstacle-aware arm motion that satisfies kinematic constraints.</p></article>
+            <article><span class="task-mark">03</span><h3>Footstep planning</h3><p>Discrete contact placement coupled with continuous locomotion.</p></article>
+            <article><span class="task-mark">04</span><h3>Grasp planning</h3><p>Contact selection and geometry-aware object interaction.</p></article>
+            <article><span class="task-mark">05</span><h3>Finger selection</h3><p>Discrete contact choices for dexterous, geometry-aware manipulation.</p></article>
+            <article><span class="task-mark">06</span><h3>Multi-modal composition</h3><p>Joint programs that coordinate navigation, locomotion, manipulation, and aerial agents.</p></article>
+          </div>
         </div>
       </section>
 
